@@ -1,7 +1,5 @@
 # CryptoClicker
 
----
-
 ## Installation
 
 ### 1. Clone projet
