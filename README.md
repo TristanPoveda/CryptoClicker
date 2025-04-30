@@ -22,3 +22,9 @@ npm run dev
 # or
 yarn dev
 ```
+## Technologies
+
+-> React + TypeScript
+-> Vite for build
+-> CoinGecko API for crypto list
+-> JSON backup + local loading
