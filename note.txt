@@ -1,0 +1,28 @@
+Btn -> Miner de la crypto -> 1/cliques
+
+Carte Graphique -> Produit 1/s:
+- Besoin d'electricité - 10Mw
+
+Source de production 2 -> Produit 2/s
+- Besoin d'electricité - 50Mw
+-> Payer 5min d'electricté
+
+Produire electricité
+- Velo -> 1s d'electricité par clique -> 10Mw par velo
+- Source d'energie 1 - 100Mw
+- Source d'energie 2 - 1000mw
+- Etc...
+
+Upgrades:
+- Production de crypto +1
+- Valeur de la crypto x2
+- Energie x2
+
+Infos:
+Nom de la crypto
+Symbol de la crypto
+Image de la crypto
+Prix de la crypto
+
+Rebirth:
+Passer à la prochaine crypto -> baser sur le prix de la prochaine crypto x un multiplier ( assurer progression equilibrer )
