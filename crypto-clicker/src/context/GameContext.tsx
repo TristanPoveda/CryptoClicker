@@ -32,7 +32,7 @@ interface GameContextType {
     loading: boolean;
 }
 
-const GameContext = createContext<GameContextType>({ gameState: defaultGameState, setGameState: () => {}, loading: true });
+const GameContext = createContext<GameContextType>({ gameState: defaultGameState, setGameState: () => {}, loading: true  });
 
 export function GameProvider({ children }: { children: React.ReactNode }){
     const [gameState, setGameState] = useState<GameState>(defaultGameState);
@@ -64,6 +64,31 @@ export function GameProvider({ children }: { children: React.ReactNode }){
         </GameContext.Provider>
     )
 }
+
+export function useGameActions() {
+    const { gameState, setGameState } = useGame();
+
+    const rebirth = () => {
+        const nextIndex = gameState.cryptoIndex + 1;
+        const hasNext = gameState.cryptoList && nextIndex < gameState.cryptoList.length;
+
+        setGameState({
+            ...gameState,
+            cryptoIndex: hasNext ? nextIndex : 0,
+            cryptoCount: 0,
+            money: 0,
+            gpuInventory: Object.fromEntries(
+                Object.entries(gameState.gpuInventory).map(([id]) => [
+                    id,
+                    { count: 0, production: 0, price: GPU_TYPES[Number(id)].baseCost },
+                ])
+            ),
+            rebirthLevel: gameState.rebirthLevel + 1,
+        });
+    };
+
+    return { rebirth };
+  }
 
 export function useGame() {
     const context  = useContext(GameContext);

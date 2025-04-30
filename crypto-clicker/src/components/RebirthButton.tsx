@@ -1,24 +1,29 @@
-import { createContext, useContext } from 'react';
 import { useGame } from '../context/GameContext';
-
-interface MinerContextType {
-    cryptoCount: number;
-    mine: () => void;
-  }
+import { useGameActions } from '../context/GameContext';
+import { rebirthThreshold } from '../config';
 
 export default function RebirthButton(): React.ReactNode {
-    const { canRebirth, rebirth, currentCrypto, cryptoIndex } = useGame();
-  
-    if (!canRebirth || !currentCrypto) return null;
-  
-    return (
-      <div style={{ marginTop: '2rem' }}>
-        <button onClick={rebirth}>
-          🔁 Rebirth → Débloquer la prochaine crypto
-        </button>
-        <p style={{ fontSize: '0.9rem', color: '#888' }}>
-          Niveau actuel : {cryptoIndex + 1} — Objectif atteint sur {currentCrypto.name}
-        </p>
-      </div>
-    );
-  }
+  const { gameState } = useGame();
+  const { rebirth } = useGameActions();
+  const canRebirth = gameState.money >= rebirthThreshold;
+
+  return (
+    <button
+      onClick={rebirth}
+      disabled={!canRebirth}
+      style={{
+        width: '100%',
+        padding: '12px 18px',
+        fontWeight: 'bold',
+        backgroundColor: canRebirth ? '#ffa500' : '#444',
+        color: canRebirth ? '#000' : '#aaa',
+        border: 'none',
+        borderRadius: '8px',
+        marginTop: '1rem',
+        cursor: canRebirth ? 'pointer' : 'not-allowed',
+      }}
+    >
+      Rebirth (next Crypto) ${rebirthThreshold}
+    </button>
+  );
+}

@@ -1,5 +1,6 @@
 import { useGame } from '../context/GameContext';
 import { useMiner } from '../context/MiningContext';
+import { formatNumber } from '../utils/formatNumber';
 
 export default function SellButton() : React.ReactNode {
     const { gameState } = useGame();
@@ -36,7 +37,7 @@ export default function SellButton() : React.ReactNode {
                     transition: 'all 0.2s ease-in-out',
             }}>
             {canSell
-                ? `Sell ${cryptoCount}`
+                ? `Sell ${formatNumber(cryptoCount)}`
                 : `No crypto to sell`}
         </button>
     );

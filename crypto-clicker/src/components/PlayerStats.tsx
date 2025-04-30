@@ -7,7 +7,7 @@ export default function PlayerStats(): React.ReactNode {
 
     return (
         <div style={{ marginBottom: '1rem' }}>
-            <p>Crypto possessed: <strong>{cryptoCount}</strong></p>
+            <p>Crypto possessed: <strong>{formatNumber(cryptoCount)}</strong></p>
             <p>Available funds: <strong>${formatNumber(money)}</strong></p>
         </div>
     );

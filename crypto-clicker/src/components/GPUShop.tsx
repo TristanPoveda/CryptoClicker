@@ -1,6 +1,7 @@
 import { useMiner } from '../context/MiningContext';
 import { useGame } from '../context/GameContext';
 import { GPU_TYPES } from '../config';
+import { formatNumber } from '../utils/formatNumber';
 import Panel from './ui/Panel';
 
 export default function GPUShop() : React.ReactNode {
@@ -30,8 +31,8 @@ export default function GPUShop() : React.ReactNode {
                             borderRadius: '4px',
                         }}>
                         <strong>{gpu.name}</strong><br />
-                        Quantity: {owned} | Production : {production.toFixed(2)} /s<br />
-                        Price: ${cost}
+                        Quantity: {owned} | Production : {formatNumber(production)} /s<br />
+                        Price: ${formatNumber(cost)}
     
                         <br />
                         <button onClick={() => buyGPU(gpu.id)} disabled={isDisabled}>

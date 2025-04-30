@@ -5,6 +5,7 @@ import { useCryptoList } from './hooks/useCryptoList';
 import CryptoPanel from './components/CryptoPanel';
 import MiningPanel from './components/MiningPanel';
 import GpuStore from './components/GPUShop';
+import SaveControls from './components/SaveControls';
 
 function Game(): React.ReactNode {
   useCryptoList();
@@ -15,6 +16,7 @@ function Game(): React.ReactNode {
       <CryptoPanel />
       <MiningPanel />
       <GpuStore />
+      <SaveControls />
     </div>
   );
 }
