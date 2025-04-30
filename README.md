@@ -7,13 +7,13 @@
 ### 1. Clone projet
 
 ```bash
-git clone https://github.com/tonpseudo/cryptoclicker.git
+git clone https://github.com/TristanPoveda/CryptoClicker.git
 cd cryptoclicker
 ```
 ### 2. Download dependencies 
 ```bash
 npm install
-# ou
+# or
 yarn install
 ```
 
@@ -21,6 +21,6 @@ yarn install
 
 ```bash
 npm run dev
-# ou
+# or
 yarn dev
 ```
